@@ -1,0 +1,30 @@
+<div *ngIf="dataSource.isLoading$ | async">Loading ...</div>
+
+<mat-card>
+  <mat-card-header
+    ><h2>{{ seasonId }} Races</h2></mat-card-header
+  >
+
+  <div *ngIf="dataSource.isLoading$ | async">Loading...</div>
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="raceName">
+      <th mat-header-cell *matHeaderCellDef>Race</th>
+      <td mat-cell *matCellDef="let element">
+        <a [routerLink]="['/seasons', seasonId, 'races', element?.round]">
+          {{ element?.raceName }}</a
+        >
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator
+    [length]="dataSource.totalNumberOfRecords$ | async"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions"
+    aria-label="Select page"
+  >
+  </mat-paginator>
+</mat-card>
