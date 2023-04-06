@@ -1,0 +1,11 @@
+<div class="row"><h2>Race seasons</h2></div>
+
+<div class="seasons-menu">
+  <a
+    *ngFor="let s of seasons"
+    mat-stroked-button
+    [routerLink]="['/seasons', s.season]"
+    >{{ s.season }}</a
+  >
+</div>
+<router-outlet></router-outlet>

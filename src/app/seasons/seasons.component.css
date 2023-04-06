@@ -1,0 +1,15 @@
+.row {
+  display: flex;
+  flex-direction: row;
+  padding: 8px;
+  justify-content: center;
+}
+
+.seasons-menu {
+  padding: 8px 8px 24px 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
